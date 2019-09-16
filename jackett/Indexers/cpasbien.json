@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://www.cpasbien.lol/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d5d470f62166fffe34f3b6230084dd6c21568719051; cf_clearance=49d89c9dc4163d56e72faebe93b227753c77181d-1568719060-31536000-150"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": null
+  }
+]

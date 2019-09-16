@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://www.torrent9.sx/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d9b3b32a2dc4f168fbc931f6311d275931568741257; cf_clearance=178c8f15c849b5509b0efb3121e4d94065ccb096-1568741271-31536000-150"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": ""
+  }
+]

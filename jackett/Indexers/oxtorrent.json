@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://www.smartorrent.tv/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d9e0828a1425e3f19b9c331999bd60e001568741041; cf_clearance=ee4291556fb4862e135a56fcd8af6615eeec60ed-1568741050-31536000-150"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": ""
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://www1.cpasbiens.cm/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d741c41ba5394ecee7636a20d28c873ef1568740283; PHPSESSID=uodocepd3o3lf02lpde1jfmgp7"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": ""
+  }
+]

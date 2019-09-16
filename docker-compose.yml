@@ -1,0 +1,91 @@
+---
+
+version: '3.7'
+
+services:
+  transmission:
+    container_name: transmission
+    image: linuxserver/transmission
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+      - USER=${TRANSMISSION_USER:?err}
+      - PASS=${TRANSMISSION_PASS:?err}
+    volumes:
+      - ./transmission/settings.json:/config/settings.json
+      - /srv/transmission:/config/
+      - ${DL_ROOT:?err}/${DL_COMPLETE:?err}:/downloads/complete
+      - ${DL_ROOT:?err}/${DL_INCOMPLETE:?err}:/downloads/incomplete
+      - ${DL_ROOT:?err}/${DL_TORRENT_BLACKHOLE:?err}:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+
+  jackett:
+    container_name: jackett
+    image: linuxserver/jackett:latest
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ./jackett/ServerConfig.json:/config/Jackett/ServerConfig.json
+      - /srv/jackett:/config
+      - ${DL_ROOT:?err}/${DL_TORRENT_BLACKHOLE:?err}:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9117:9117
+
+  emby:
+    container_name: emby
+    image: emby/embyserver:latest
+    restart: unless-stopped
+    environment:
+      - UID=${PUID:?err}
+      - GID=${PGID:?err}
+    volumes:
+      - ./emby/system.xml:/config/config/system.xml
+      - ./emby/root:/config/root
+      - /srv/emby:/config
+      - ${LIB_ROOT:?err}/${LIB_MOVIE:?err}:/mnt/movies
+      - ${LIB_ROOT:?err}/${LIB_SERIE:?err}:/mnt/series
+    ports:
+      - 8096:8096
+
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr:latest
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ./sonarr/config.xml:/config/config.xml
+      - /srv/sonarr/:/config
+      - ${LIB_ROOT:?err}/${LIB_SERIE:?err}:/tv
+      - ${DL_ROOT:?err}:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8989:8989
+
+  radarr:
+    container_name: radarr
+    image: linuxserver/radarr:latest
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ./radarr/config.xml:/config/config.xml
+      - /srv/radarr:/config
+      - ${LIB_ROOT:?err}/${LIB_MOVIE:?err}:/movies
+      - ${DL_ROOT:?err}/:/downloads
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7878:7878

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://www.gktorrent.biz/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d96f829eb16128207527f97412d5147521568740053; cf_clearance=fff811336c8f25927fbe1dd394ef3776c6c3b1cf-1568740065-31536000-150"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": ""
+  }
+]
